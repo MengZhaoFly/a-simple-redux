@@ -1,6 +1,7 @@
 /** 返回一个修改后的状态 触发修改的函数  
  */
-export default (state, stateChange) => {
+export default (stateChange) => {
+    let state = null
     const listeners = []
     // 订阅
     const Subscribe = (listener) => listeners.push(listener)
@@ -10,6 +11,7 @@ export default (state, stateChange) => {
         state = stateChange(state, action)
         listeners.forEach( listener => listener())
     }
+    dispatch({})
     // 订阅
     return { getState, dispatch, Subscribe}
 }
