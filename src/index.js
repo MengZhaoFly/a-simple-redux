@@ -20,6 +20,7 @@ function renderContent(content, newContent = {}) {
   contentDOM.style.color = newContent.color
 }
 // type decide text/color
+// 其实就是 reducer 无副作用 初始化和计算新的state
 function stateChange(state, action) {
   if (!state) {
     return {

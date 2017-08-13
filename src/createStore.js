@@ -1,6 +1,6 @@
 /** 返回一个修改后的状态 触发修改的函数  
  */
-export default (stateChange) => {
+export default (reducer) => {
     let state = null
     const listeners = []
     // 订阅
@@ -8,7 +8,7 @@ export default (stateChange) => {
     const getState = () => state
     // 指定了哪种state action的type action的text
     const dispatch = (action) => {
-        state = stateChange(state, action)
+        state = reducer(state, action)
         listeners.forEach( listener => listener())
     }
     dispatch({})
